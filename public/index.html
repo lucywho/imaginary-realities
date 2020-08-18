@@ -3,6 +3,7 @@
 <head>
     <title>Imaginary Realities</title>
     <link rel="stylesheet" href="/css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Titillium+Web&display=swap" rel="stylesheet">
 </head>
 <body>
     <h1>Imaginary Realities</h1>
@@ -35,22 +36,20 @@
         <!-- ============/form=========== -->
         <div id="image-container">
             <ul v-for="item in images">
-                <div class="card" @click="handleImageClick(item.id)" @mouseenter="handleHover">
+                <div class="card" @click="handleImageClick(item.id)">
                     <div class="title">
                 {{ item.title }}
+                    </div>
+                    <div class="card-click">
+                        click to comment
                     </div>
                 
                     <img class="image" :src="item.url" :id="item.id"></img>
                     <div class="description">
                 {{ item.description }}
                     </div>
-                    <!-- <div class="card-modal">
-                        click to comment
-                    </div> -->
-                </div>
                     
-                
-            
+                </div>
             </ul>
         </div>
 

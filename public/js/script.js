@@ -46,10 +46,6 @@
                 this.$emit("closemodal");
             },
 
-            handleHover: function() {
-                this.$emit("handleHover");
-            },
-
             handleCommentSubmit: function(e) {
                 e.preventDefault();
 
@@ -95,13 +91,6 @@
         }, //mounted ends
 
         methods: {
-            handleHover: function() {
-                document
-                    .getElementsByClassName("class-modal")
-                    .classList.add("vis");
-                console.log("hover");
-            },
-
             handleImageClick: function(id) {
                 this.selectedImage = id;
             },
