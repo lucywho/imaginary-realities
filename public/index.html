@@ -9,6 +9,7 @@
     <h1>Imaginary Realities</h1>
     
     <div id="main">
+        <div class="welcome">Welcome to Imaginary Realities, a Hubble-themed image board. Upload your own images, or click on existing images to leave a comment</div>
         <!-- ============component================ -->
         <first-component 
         v-if="selectedImage" 
@@ -22,6 +23,7 @@
         <!-- ============form=========== -->
         <div id="form">
             <form>
+                
             <input v-model="title" type="text" name="title" placeholder="title">
             <input v-model="description"  type="text" name="description" placeholder="description">
             <input v-model="username" type="text" name="username" placeholder="username">
