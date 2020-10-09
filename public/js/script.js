@@ -80,6 +80,7 @@
             username: "",
             file: null,
             moreImages: true,
+            hover: false,
         }, //end of data
 
         mounted: function() {

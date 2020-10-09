@@ -24,38 +24,43 @@
         <div id="form">
             <form>
                 
-            <input v-model="title" type="text" name="title" placeholder="title">
-            <input v-model="description"  type="text" name="description" placeholder="description">
-            <input v-model="username" type="text" name="username" placeholder="username">
+                <input v-model="title" type="text" name="title" placeholder="title">
+                <input v-model="description"  type="text" name="description" placeholder="description">
+                <input v-model="username" type="text" name="username" placeholder="username">
 
-            <input @change="handleChange" type="file" name="file" accept="image/*" class="inputfile">
-            <label for="inputfile">choose a file</label>
+                <input @change="handleChange" type="file" name="file" accept="image/*" class="inputfile">
+                <label for="inputfile">choose a file</label>
 
-            <button id="submit_file" @click="handleClick">submit</button>
+                <button id="submit_file" 
+                @click="handleClick">submit</button>
 
             </form>
         </div>
         <!-- ============/form=========== -->
         <div id="image-container">
             <ul v-for="item in images">
-                <div class="card" @click="handleImageClick(item.id)">
+                <div class="card"
+                @click="handleImageClick(item.id)"
+                @mouseover="hover = true"
+                @mouseleave="hover = false">
                     <div class="title">
-                {{ item.title }}
+                        {{ item.title }}
                     </div>
-                    <div class="card-click">
-                        click to comment
-                    </div>
-                
+                    <div class="ctc" v-if="hover"> click to comment</div>
+                    <div class="ctc" v-else><br> </div>
+                    
                     <img class="image" :src="item.url" :id="item.id"></img>
                     <div class="description">
-                {{ item.description }}
+                        {{ item.description }}
                     </div>
-                    
                 </div>
             </ul>
         </div>
 
-        <button v-if="moreImages" @click="handleMoreImages">see older images</button>
+        <button v-if="moreImages" 
+        @click="handleMoreImages">
+            see older images
+        </button>
        
     </div>
     
