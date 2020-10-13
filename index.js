@@ -107,4 +107,6 @@ app.get("/moreimages/:lastId", (req, res) => {
 
 //========
 
-app.listen(8080, () => console.log("imageboard server is running"));
+app.listen(process.env.PORT || 8080, () =>
+    console.log("imageboard server is running")
+);
