@@ -61,6 +61,8 @@
                     .post("/new-comment", newComment)
                     .then(function(response) {
                         self.comments.unshift(response.data);
+                        self.comment = "";
+                        self.commenter = "";
                     })
                     .catch(function(err) {
                         console.log("error in new comment upload");

@@ -26,12 +26,13 @@ h1 {
 
 #form {
     border: 2px solid rgb(0, 105, 146);
-    border-radius: 30px;
-    margin: 0 2%;
+    border-radius: 20px;
+    margin: 2%;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
     align-items: center;
+    padding: 10px;
     margin: 1rem 0;
 }
 
@@ -47,7 +48,8 @@ input {
 
 input:hover,
 input:focus {
-    font-size: 25px;
+    border-color: rgb(184, 12, 9);
+    border-width: 5px;
 }
 
 input[type="file"] {
@@ -87,16 +89,14 @@ button {
     text-align: center;
     color: rgb(0, 0, 32);
     padding: 0 10px;
-    margin: 5px 5px;
     border: 2px solid rgb(184, 12, 9);
-
     background-color: rgb(234, 224, 213);
     border-radius: 10px;
 }
 
 button:focus,
 button:hover {
-    border: 2px solid rgb(184, 12, 9);
+    border: 5px solid rgb(184, 12, 9);
     background-color: rgb(0, 105, 146);
 }
 
@@ -232,6 +232,10 @@ h2 {
     font-family: Arial, Helvetica, sans-serif;
 }
 
+#modalX:hover {
+    color: rgb(184, 12, 9);
+}
+
 .comment {
     background-color: rgb(215, 246, 250);
     color: navy;
@@ -240,6 +244,7 @@ h2 {
     border-right: 2px antiquewhite solid;
     border-bottom: 2px antiquewhite solid;
     border-radius: 5px;
+    padding: 5px;
     margin: 2px;
     width: 40%;
 }
