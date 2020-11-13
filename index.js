@@ -94,10 +94,8 @@ app.post("/new-comment/", (req, res) => {
 });
 
 app.get("/moreimages/:lastId", (req, res) => {
-    console.log("req params", req.params);
     db.getMoreImages(req.params.lastId)
         .then((results) => {
-            console.log("results from get more images: ", results);
             res.json(results);
         })
         .catch((err) => {
