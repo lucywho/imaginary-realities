@@ -1,34 +1,34 @@
-(function() {
+(function () {
     Vue.component("first-component", {
         template: "#template",
         props: ["compTitle", "id"],
-        mounted: function() {
+        mounted: function () {
             var self = this;
 
             axios
                 .get("/imagebyid/" + this.id)
-                .then(function(results) {
+                .then(function (results) {
                     self.title = results.data.title;
                     self.description = results.data.description;
                     self.url = results.data.url;
                     self.username = results.data.username;
                     self.created_at = results.data.created_at;
                 })
-                .catch(function(err) {
+                .catch(function (err) {
                     console.log("catch in image by id", err);
                 });
 
             axios
                 .get("/commentsbyid/" + this.id)
-                .then(function(results) {
+                .then(function (results) {
                     self.comments = results.data;
                 })
-                .catch(function(err) {
+                .catch(function (err) {
                     console.log("catch in comments by id", err);
                 });
         }, //end of component mounted
 
-        data: function() {
+        data: function () {
             return {
                 title: "",
                 description: "",
@@ -42,11 +42,11 @@
         }, //end of component data
 
         methods: {
-            closeModal: function() {
+            closeModal: function () {
                 this.$emit("closemodal");
             },
 
-            handleCommentSubmit: function(e) {
+            handleCommentSubmit: function (e) {
                 e.preventDefault();
 
                 var self = this;
@@ -59,12 +59,12 @@
 
                 axios
                     .post("/new-comment", newComment)
-                    .then(function(response) {
+                    .then(function (response) {
                         self.comments.unshift(response.data);
                         self.comment = "";
                         self.commenter = "";
                     })
-                    .catch(function(err) {
+                    .catch(function (err) {
                         console.log("error in new comment upload");
                     });
             },
@@ -85,24 +85,27 @@
             hover: false,
         }, //end of data
 
-        mounted: function() {
+        mounted: function () {
             var self = this;
 
-            axios.get("/images").then(function(response) {
+            console.log("step 1: mounted");
+
+            axios.get("/images").then(function (response) {
                 self.images = response.data;
+                console.log("step 5 response data returned to front end");
             });
         }, //mounted ends
 
         methods: {
-            handleImageClick: function(id) {
+            handleImageClick: function (id) {
                 this.selectedImage = id;
             },
 
-            closeModal: function() {
+            closeModal: function () {
                 this.selectedImage = null;
             },
 
-            handleClick: function(e) {
+            handleClick: function (e) {
                 e.preventDefault();
 
                 var self = this;
@@ -115,22 +118,22 @@
 
                 axios
                     .post("/upload", formData)
-                    .then(function(response) {
+                    .then(function (response) {
                         self.images.unshift(response.data[0]);
                         self.title = "";
                         self.description = "";
                         self.username = "";
                     })
-                    .catch(function(err) {
+                    .catch(function (err) {
                         console.log("error in post upload");
                     });
             },
 
-            handleChange: function(e) {
+            handleChange: function (e) {
                 this.file = e.target.files[0];
             },
 
-            handleMoreImages: function() {
+            handleMoreImages: function () {
                 var self = this;
                 let lastImage = self.images.length - 1;
 
@@ -138,7 +141,7 @@
 
                 axios
                     .get("/moreimages/" + lastId)
-                    .then(function(response) {
+                    .then(function (response) {
                         console.log(
                             "response data from /moreimages",
                             response.data

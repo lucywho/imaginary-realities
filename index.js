@@ -13,11 +13,11 @@ const uidSafe = require("uid-safe");
 const path = require("path");
 
 const diskStorage = multer.diskStorage({
-    destination: function(req, file, callback) {
+    destination: function (req, file, callback) {
         callback(null, __dirname + "/uploads");
     },
-    filename: function(req, file, callback) {
-        uidSafe(24).then(function(uid) {
+    filename: function (req, file, callback) {
+        uidSafe(24).then(function (uid) {
             callback(null, uid + path.extname(file.originalname));
         });
     },
@@ -32,9 +32,11 @@ const uploader = multer({
 //==end of boilerplate==
 
 app.get("/images", (req, res) => {
+    console.log("step 2 get request made");
     db.getImages()
         .then((results) => {
             res.json(results.rows);
+            console.log("step 4 results returned from db");
         })
         .catch((err) => {
             console.log("error in getImages:", err);
