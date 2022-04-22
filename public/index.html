@@ -50,7 +50,7 @@
                     <div class="ctc" v-if="hover"> click to comment</div>
                     <div class="ctc" v-else><br> </div>
                     
-                    <img class="image" :src="item.url" :id="item.id" :alt=""></img>
+                    <img class="image" alt="":src="item.url" :id="item.id"></img>
                     <div class="description">
                         {{ item.description }}
                     </div>
@@ -86,8 +86,8 @@
 
             <div class="modal-comments">        
                 <form action="post" id="newcomm">
-                    <input v-model="comment" type="text" name="newcomment" placeholder="comment on this image..." aria-label="comment">
-                    <input v-model="commenter" type="text" name="username" placeholder="user name..." aria-label="username">
+                    <input v-model="comment" type="text" name="newcomment" placeholder="comment on this image..." aria-label="comment" >
+                    <input v-model="commenter" type="text" name="username" placeholder="user name..." aria-label="commenter username" >
                     <button id="submit_comment" @click="handleCommentSubmit">Submit Comment</button>
                 </form>
     
