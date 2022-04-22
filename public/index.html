@@ -25,11 +25,11 @@
         <div id="form">
             <form>
                 
-                <input v-model="title" type="text" name="title" placeholder="title">
-                <input v-model="description"  type="text" name="description" placeholder="description">
-                <input v-model="username" type="text" name="username" placeholder="username">
+                <input v-model="title" type="text" name="title" placeholder="title" aria-label="title">
+                <input v-model="description"  type="text" name="description" placeholder="description" aria-label="description">
+                <input v-model="username" type="text" name="username" placeholder="username" aria-label="username">
 
-                <input @change="handleChange" type="file" name="file" accept="image/*" class="inputfile">
+                <input @change="handleChange" type="file" name="file" accept="image/*" class="inputfile" aria-label="file">
                 <label for="inputfile">choose a file</label>
 
                 <button id="submit_file" 
@@ -50,7 +50,7 @@
                     <div class="ctc" v-if="hover"> click to comment</div>
                     <div class="ctc" v-else><br> </div>
                     
-                    <img class="image" :src="item.url" :id="item.id"></img>
+                    <img class="image" :src="item.url" :id="item.id" :alt=""></img>
                     <div class="description">
                         {{ item.description }}
                     </div>
@@ -70,7 +70,7 @@
     <script type="text/x-template" id="template">
         <div class="component">
             <div id="mi-container">
-                <img class="modal-image" :src="url">
+                <img class="modal-image" :src="url" :alt="">
             </div>
 
             <div id="mtext-container">
@@ -86,8 +86,8 @@
 
             <div class="modal-comments">        
                 <form action="post" id="newcomm">
-                    <input v-model="comment" type="text" name="newcomment" placeholder="comment on this image...">
-                    <input v-model="commenter" type="text" name="username" placeholder="user name...">
+                    <input v-model="comment" type="text" name="newcomment" placeholder="comment on this image..." aria-label="comment">
+                    <input v-model="commenter" type="text" name="username" placeholder="user name..." aria-label="username">
                     <button id="submit_comment" @click="handleCommentSubmit">Submit Comment</button>
                 </form>
     
