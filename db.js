@@ -5,6 +5,7 @@ const db = spicedPg(
 );
 
 module.exports.getImages = () => {
+    console.log("getImages");
     return db.query(`SELECT * FROM images ORDER BY id DESC LIMIT 8;`);
 };
 

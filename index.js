@@ -35,6 +35,7 @@ app.get("/images", (req, res) => {
     console.log("step 2 get request made");
     db.getImages()
         .then((results) => {
+            console.log("getImages");
             res.json(results.rows);
             console.log("step 4 results returned from db");
         })
